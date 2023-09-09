@@ -1,0 +1,90 @@
+{% extends "donor_base.html" %} {% block title %}Login{% endblock %} {% block content
+    %}
+
+
+
+
+        <section class="section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+
+                        <div class="card p-4">
+                            
+                            
+
+                            <h5 class="card-title mb-4">Donor</h5>
+                            <h5 class="card-title mb-4">Information</h5>
+
+                            <div class="row mb-5">
+                                <div class="col-md-4 col-sm-12 label" style="font-weight: bold;">Donor ID: </div>
+                                <div class="col-md-8 col-sm-12">{{donor.DonorID}}</div>
+
+
+                                <div class="col-md-4 col-sm-12 label" style="font-weight: bold;">Status: </div>
+                                <div class="col-md-8 col-sm-12">
+
+                                    {% if donor.isAvailable %}
+                                    <span class="badge bg-success">Active</span>
+                                    {% else %}
+                                    <span class="badge bg-secondary">transplanted</span>
+
+                                    {% endif %}
+                                </div>
+
+
+                                <div class="col-md-4 col-sm-12 label" style="font-weight: bold;">Date Of Birth:</div>
+                                <div class="col-md-8 col-sm-12">{{donor.DateOfBirth}}</div>
+
+                                <div class="col-md-4 col-sm-12 label" style="font-weight: bold;">Blood Group: </div>
+                                <div class="col-md-8 col-sm-12">{{donor.BloodGroup}}</div>
+
+                                <div class="col-md-4 col-sm-12 label" style="font-weight: bold;"> HLA </div>
+                                <div class="col-md-8 col-sm-12"></div>
+
+                                <div class="col-md-4 col-sm-12 label">A: </div>
+                                <div class="col-md-8 col-sm-12">{{donor.A1}},{{donor.A2}}</div>
+
+
+                                <div class="col-md-4 col-sm-12 label">B: </div>
+                                <div class="col-md-8 col-sm-12">{{donor.B1}},{{donor.B2}}</div>
+
+                                <div class="col-md-4 col-sm-12 label">C: </div>
+                                <div class="col-md-8 col-sm-12">{{donor.C1}},{{donor.C2}}</div>
+
+
+                                <div class="col-md-4 col-sm-12 label">DRB1: </div>
+                                <div class="col-md-8 col-sm-12">{{donor.DRB1}},{{donor.DRB2}}</div>
+
+
+                                <div class="col-md-4 col-sm-12 label">DQA1: </div>
+                                <div class="col-md-8 col-sm-12">{{donor.DQA1}},{{donor.DQA2}}</div>
+
+                                <div class="col-md-4 col-sm-12 label">DQB1: </div>
+                                <div class="col-md-8 col-sm-12">{{donor.DQB1}},{{donor.DQB2}}</div>
+
+                                <div class="text-end">
+
+                                  <a href="{{ url_for('views.modify_Donor', donorID=donor.DonorID) }}">
+                                        <button type="submit" class="btn btn-primary me-2">Modify</button>
+                                    </a>
+
+
+                                    <button class="btn btn-primary w-60" onclick="deleteDonor('{{ donor.DonorID }}')">Delete</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+
+   
+
+    {% endblock %}
+    <!-- ======= Footer ======= 
+  <footer id="footer" class="footer">
+    
+  </footer> End Footer -->
+

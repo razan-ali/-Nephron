@@ -1,0 +1,64 @@
+{% extends "base_transplantation.html" %} 
+{% block title %}Transplantation{% endblock %} 
+{% block content %}
+
+
+
+  <section class="section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+
+          <div class="card p-4">
+            <h5 class="card-title mb-4">Transplantation Information</h5>
+            
+            <form method="POST">
+              
+
+              <div class="row mb-3">
+                <label  class="col-sm-2 col-form-label">Donor ID</label>
+                <div class="col-sm-3">
+                  <a href="{{ url_for('views.view_donor', donorID=transplantation.DonorID) }}">
+                    {{ transplantation.DonorID }}
+                  </a>
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Patient ID</label>
+                <div class="col-sm-3">
+                  <a href="{{ url_for('views.view_patient', PatientID=transplantation.PatientID) }}">
+                    {{ transplantation.PatientID }}
+                  </a>
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <label for="inputDate" class="col-sm-3 col-form-label">Date of Transplantation</label>
+                <div class="col-sm-3">
+                  <input type="date" name="DateOfTransplantation" class="form-control" value="{{ transplantation.DateOfTransplantation }}">
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <label for="inputPassword" class="col-sm-2 col-form-label">Complications</label>
+                <div class="col-sm-4">
+                  <textarea name="complications" class="form-control">{{ transplantation.complications }}</textarea>
+                </div>
+              </div>
+
+              <div class="text-end">
+                <button type="submit" class="btn btn-primary">Save</button>
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+{% endblock %}

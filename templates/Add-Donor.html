@@ -1,0 +1,203 @@
+{% extends "donor_base.html" %} {% block title %}Login{% endblock %} {% block content
+%}
+
+
+    <section class="section dashboard">
+        <div class="card">
+            <div class="card-body">
+
+                <h5 class="card-title">Add Donor</h5>
+                <form method="POST">
+                    <div class="donor-inf">
+                        <h6 class="card-title22">Donor Information</h6>
+                        <div class="info">
+                            <form>
+                                <div class="row mb-3">
+                                    <label for="inputText" class="col-sm-2 col-form-label">Donor ID:</label>
+                                    <div class="col-sm-3"> <!--the mote text and the box-->
+                                        <input type="text" name="donorID" class="form-control" id="donorID" required>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="inputStatus" class="col-sm-2 col-form-label">Status:</label>
+                                    <div class="col-sm-3">
+                                        <div class="input-group">
+                                            <select class="form-select" id="inputStatus" , name="inputStatus">
+                                                <option selected>Choose...</option>
+                                                <option value="option1">Available</option>
+                                                <option value="option2">UnAvailable</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row mb-3">
+                                    <label for="inputDate" class="col-sm-2 col-form-label">Data Of Birth:</label>
+                                    <div class="col-sm-3">
+                                        <input type="date" class="form-control" id="inputDate" name="inputDate" required>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="inputEmail" class="Medical-History">Medical History</label>
+                                </div>
+
+
+
+
+
+                                <div class="box-Medical-History">
+                                    <div class="row mb-3">
+                                        <label for="inputEmail" class="col-sm-2 col-form-label">Blood Group:</label>
+                                        <div class="col-sm-3">
+                                            <div class="input-group">
+                                                <select class="form-select" id="bloodGroup" name="bloodGroup" required>
+                                                    <option selected>Choose...</option>
+                                                    <option value="O+">O+</option>
+                                                    <option value="A+">A+</option>
+                                                    <option value="B+">B+</option>
+                                                    <option value="AB+">AB+</option>
+                                                    <option value="O-">O-</option>
+                                                    <option value="A-">A-</option>
+                                                    <option value="B-">B-</option>
+                                                    <option value="AB-">AB-</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <label for="inputEmail" class="Medical-History">HLA</label>
+                                    <div class="box-hla">
+                                        <div class="row mb-3">
+
+                                            <label for="hla-a" class="col-sm-2 col-form-label">A:</label>
+                                            <div class="col-sm-3">
+                                                <div class="input-group">
+                                                    <input type="text" name="donorA1" class="form-control" id="donorA1"
+                                                        required>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-3">
+                                                <div class="input-group">
+                                                    <input type="text" name="donorA2" class="form-control" id="donorA2"
+                                                        required>
+                                                </div>
+                                            </div>
+
+                                        </div> <!--box a -->
+
+                                        <div class="row mb-3">
+                                            <label for="hla-b" class="col-sm-2 col-form-label">B:</label>
+                                            <div class="col-sm-3">
+                                                <div class="input-group">
+                                                    <input type="text" name="donorB1" class="form-control" id="donorB1"
+                                                        required>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-3">
+                                                <div class="input-group">
+                                                    <input type="text" name="donorB2" class="form-control" id="donorB2"
+                                                        required>
+                                                </div>
+                                            </div>
+                                        </div> <!--box b -->
+
+
+
+                                        <div class="row mb-3">
+                                            <label for="hla-c" class="col-sm-2 col-form-label">C:</label>
+                                            <div class="col-sm-3">
+                                                <div class="input-group">
+                                                    <input type="text" name="donorC1" class="form-control" id="donorC1"
+                                                        required>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-3">
+                                                <div class="input-group">
+                                                    <input type="text" name="donorC2" class="form-control" id="donorC2"
+                                                        required>
+                                                </div>
+                                            </div>
+                                        </div> <!--box c-->
+
+                                        <div class="row mb-3">
+                                            <label for="hla-drb" class="col-sm-2 col-form-label">DRB1:</label>
+                                            <div class="col-sm-3">
+                                                <div class="input-group">
+                                                    <input type="text" name="donorDRB1" class="form-control"
+                                                        id="donorDRB1" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-3">
+                                                <div class="input-group">
+                                                    <input type="text" name="donorDRB2" class="form-control"
+                                                        id="donorDRB2" required>
+                                                </div>
+                                            </div>
+                                        </div> <!--box drb-->
+
+
+
+                                        <div class="row mb-3">
+                                            <label for="hla-dqa" class="col-sm-2 col-form-label">DQA1:</label>
+                                            <div class="col-sm-3">
+                                                <div class="input-group">
+                                                    <input type="text" name="donorDQA1" class="form-control"
+                                                        id="donorDQA1" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-3">
+                                                <div class="input-group">
+                                                    <input type="text" name="donorDQA2" class="form-control"
+                                                        id="donorDQA2" required>
+                                                </div>
+                                            </div>
+                                        </div> <!--box dqa -->
+
+                                        <div class="row mb-3">
+                                            <label for="hla-dqa" class="col-sm-2 col-form-label">DQB1:</label>
+                                            <div class="col-sm-3">
+                                                <div class="input-group">
+                                                    <input type="text" name="donorDQB1" class="form-control"
+                                                        id="donorDQB1" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-3">
+                                                <div class="input-group">
+                                                    <input type="text" name="donorDQB2" class="form-control"
+                                                        id="donorDQB2" required>
+                                                </div>
+                                            </div>
+                                        </div> <!--box dqa and dqb-->
+
+
+                                    </div> <!--END box of hla-->
+                                </div> <!--END box-Medical-History-->
+
+                                <div class="text-end">
+                                    <button type="submit" class="btn btn-primary">Save</button>
+                                </div>
+
+                            </form><!-- End General Form Elements -->
+
+                        </div>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock %}

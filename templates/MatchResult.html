@@ -1,0 +1,95 @@
+{% extends "donor_base.html" %} {% block title %}Login{% endblock %} {% block content
+  %}
+  
+
+    <section class="section dashboard">
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="card">
+            
+            <div class="card-body">
+
+              <h5 class="card-title">Matching Result</h5>
+              <td>Donor ID: <a href="{{ url_for('views.view_donor', donorID=donor.DonorID) }}">{{donor.DonorID}}</a></td>
+              
+              <!-- Default Table -->
+
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Patient ID</th>
+                    <th scope="col">Matching Result</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for key, value in ranking.items() %}
+                   </tr>
+                     <td> <a href="{{ url_for('views.view_patient', PatientID=key) }}">{{ key }}</a></td>
+                     {%if value == 100.0 %}
+                        <td> <span class="badge bg-success">Perfect Match</span></td>
+                       
+                        {% else %}
+                        <td> <span class="badge bg-success">Accaptable Mismatch, {{value}}</span></td>
+                      
+                      {% endif %}
+                      <td>
+                        <a href="{{ url_for('views.schedule_transplantation', donorID=donor.DonorID, patientID=key) }}">
+                          <button type="button" class="btn btn-primary btn-sm">Schedule</button>
+                        </a>
+                      </td>
+                      <td>
+                        <a href="{{ url_for('views.view_matching', PatientID=key ,donorid=donor.DonorID, matchingResult = value) }}">
+                          <button type="button" class="btn btn-primary btn-sm">View</button>
+                        </a>
+                      </td>
+
+
+                      
+
+                    </tr>
+                  {% endfor %}
+
+
+                  {% for key, value in results.items() %}
+                  <tr>
+
+                    
+                      <td> <a href="{{ url_for('views.view_patient', PatientID=key) }}">{{ key }}</a></td>
+                    
+
+                      
+
+                      {%if value == "Blood Group MisMatch"%}
+                        <td><span class="badge bg-danger">Blood Mismatch</span></td>
+                        {% elif value == "Age MisMatch" %}
+                        <td><span class="badge bg-danger">Age MisMatch</span></td>
+                        {% elif value == "Antibody MisMatch" %}
+                        <td><span class="badge bg-danger">Antibody MisMatch</span></td>  
+                        {% else %}
+                        <td> <span class="badge bg-success">{{value}}</span></td>
+                      
+                      {% endif %}
+
+                      <td>
+                        <a href="{{ url_for('views.schedule_transplantation', donorID=donor.DonorID, patientID=key) }}">
+                          <button type="button" class="btn btn-primary btn-sm">Schedule</button>
+                        </a>
+                      </td>
+                      <td>
+                        <a href="{{ url_for('views.view_matching', PatientID=key ,donorid=donor.DonorID, matchingResult = value) }}">
+                          <button type="button" class="btn btn-primary btn-sm">View</button>
+                        </a>
+                      </td>
+
+                    </tr>
+                  {% endfor %}
+                  
+                </tbody>
+              </table>
+              <!-- End Default Table Example -->
+              
+            </div>
+          </div>
+    </section>
+  {% endblock %}

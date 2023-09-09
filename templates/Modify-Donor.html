@@ -1,0 +1,208 @@
+{% extends "donor_base.html" %} {% block title %}Login{% endblock %} {% block content
+%}
+
+
+
+    <section class="section dashboard">
+        <div class="card">
+            <div class="card-body">
+
+                <h5 class="card-title">Modify Donor</h5>
+                <div class="donor-inf">
+                    <h6 class="card-title22">Donor Information</h6>
+                    <div class="info">
+                        <form method="POST">
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-2 col-form-label">Donor ID:</label>
+                                <div class="col-sm-3"> <!--the mote text and the box-->
+                                    {{donor.DonorID}}
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="inputStatus" class="col-sm-2 col-form-label">Status:</label>
+                                <div class="col-sm-3">
+                                    <div class="input-group">
+                                        <select class="form-select" id="inputStatus" , name="inputStatus">
+                                            <option selected>
+                                                {% if donor.isAvailable %}
+                                                Active
+                                                {% else %}
+                                                transplanted
+                                                {% endif %}
+                                                
+                                            </option>
+                                            <option value="option1">Active</option>
+                                            <option value="option2">transplanted</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row mb-3">
+                                <label for="inputDate" class="col-sm-2 col-form-label">Data Of Birth:</label>
+                                <div class="col-sm-3">
+                                    <input type="date" name="inputDate" class="form-control" value="{{ donor.DateOfBirth }}">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label  class="Medical-History">Medical History</label>
+                            </div>
+
+                            <div class="box-Medical-History">
+                                <div class="row mb-3">
+                                    <label  class="col-sm-2 col-form-label">Blood Group:</label>
+                                    <div class="col-sm-3">
+                                        <div class="input-group">
+                                            <select class="form-select" id="bloodGroup" name="bloodGroup">
+                                                <option selected>{{donor.BloodGroup}}</option>
+                                                <option value="O+">O+</option>
+                                                <option value="A+">A+</option>
+                                                <option value="B+">B+</option>
+                                                <option value="AB+">AB+</option>
+                                                <option value="O-">O-</option>
+                                                <option value="A-">A-</option>
+                                                <option value="B-">B-</option>
+                                                <option value="AB-">AB-</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <label for="inputEmail" class="Medical-History">HLA</label>
+                                <div class="box-hla">
+                                    <div class="row mb-3">
+
+                                        <label for="hla-a" class="col-sm-2 col-form-label">A:</label>
+                                        <div class="col-sm-3">
+                                            <div class="input-group">
+                                                <input type="text" name="patinetA1" class="form-control"
+                                                    id="patinetA1" placeholder="{{donor.A1}}">
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-3">
+                                            <div class="input-group">
+                                                <input type="text" name="patinetA2" class="form-control"
+                                                    id="patinetA2"   placeholder="{{donor.A2}}">
+                                            </div>
+                                        </div>
+
+                                    </div> <!--box a -->
+
+                                    <div class="row mb-3">
+                                        <label for="hla-b" class="col-sm-2 col-form-label">B:</label>
+                                        <div class="col-sm-3">
+                                            <div class="input-group">
+                                                <input type="text" name="patinetB1" class="form-control"
+                                                    id="patinetB1" placeholder="{{donor.B1}}">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-3">
+                                            <div class="input-group">
+                                                <input type="text" name="patinetB2" class="form-control"
+                                                    id="patinetB2" placeholder="{{donor.B2}}">
+                                            </div>
+                                        </div>
+                                    </div> <!--box b -->
+
+
+
+                                    <div class="row mb-3">
+                                        <label for="hla-c" class="col-sm-2 col-form-label">C:</label>
+                                        <div class="col-sm-3">
+                                            <div class="input-group">
+                                                <input type="text" name="patinetC1" class="form-control"
+                                                    id="patinetC1" placeholder="{{donor.C1}}">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-3">
+                                            <div class="input-group">
+                                                <input type="text" name="patinetC2" class="form-control"
+                                                    id="patinetC2" placeholder="{{donor.C2}}">
+                                            </div>
+                                        </div>
+                                    </div> <!--box c-->
+
+                                    <div class="row mb-3">
+                                        <label for="hla-drb" class="col-sm-2 col-form-label">DRB1:</label>
+                                        <div class="col-sm-3">
+                                            <div class="input-group">
+                                                <input type="text" name="patinetDRB1" class="form-control"
+                                                    id="patinetDRB1" placeholder="{{donor.DRB1}} ">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-3">
+                                            <div class="input-group">
+                                                <input type="text" name="patinetDRB2" class="form-control"
+                                                    id="patinetDRB2" placeholder="{{donor.DRB2}}">
+                                            </div>
+                                        </div>
+                                    </div> <!--box drb-->
+
+
+
+                                    <div class="row mb-3">
+                                        <label for="hla-dqa" class="col-sm-2 col-form-label">DQA1:</label>
+                                        <div class="col-sm-3">
+                                            <div class="input-group">
+                                                <input type="text" name="patinetDQA1" class="form-control"
+                                                    id="patinetDQA1" placeholder="{{donor.DQA1}}" >
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-3">
+                                            <div class="input-group">
+                                                <input type="text" name="patinetDQA2" class="form-control"
+                                                    id="patinetDQA2"  placeholder="{{donor.DQA2}}" >
+                                            </div>
+                                        </div>
+                                    </div> <!--box dqa -->
+
+                                    <div class="row mb-3">
+                                        <label for="hla-dqa" class="col-sm-2 col-form-label">DQB1:</label>
+                                        <div class="col-sm-3">
+                                            <div class="input-group">
+                                                <input type="text" name="patinetDQB1" class="form-control"
+                                                    id="patinetDQB1" placeholder="{{donor.DQB1}}"  >
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-3">
+                                            <div class="input-group">
+                                                <input type="text" name="patinetDQB2" class="form-control"
+                                                    id="patinetDQB2"  placeholder="{{donor.DQB2}}"  >
+                                            </div>
+                                        </div>
+                                    </div> <!--box dqa and dqb-->
+
+
+                                </div> <!--END box of hla-->
+
+                                
+                            </div> <!--END box-Medical-History-->
+
+                            <div class="text-end">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+
+                        </form><!-- End General Form Elements -->
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+    {% endblock %}

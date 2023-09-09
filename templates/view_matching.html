@@ -1,0 +1,185 @@
+{% extends "donor_base.html" %} {% block title %}Login{% endblock %} {% block content
+%}
+<section class="section">
+
+    <div class="row">
+        <div class="col">
+            <div class="card p-3">
+                
+                <div class="col">
+                <h5 class="card-title mb-4">Matching Result</h5>
+                {%if matchingResult == "Blood Group MisMatch"%}
+                <span class="badge bg-danger mb-3">Blood Mismatch</span>
+                {% elif matchingResult == "Age MisMatch" %}
+                <span class="badge bg-danger">Age MisMatch</span></td>
+                {% elif matchingResult == "Antibody MisMatch" %}
+                <span class="badge bg-danger">Antibody MisMatch</span>
+                {% elif matchingResult == 100.0 %}
+                <span class="badge bg-success">Perfect Match, {{matchingResult}}</span>
+                {% else %}
+                <span class="badge bg-success">Accaptable Mismatch, {{matchingResult}}</span>
+                {% endif %}
+            </div>
+
+
+            </div>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="card p-4">
+
+
+
+                    <h5 class="card-title mb-4">Donor Information :</h5>
+
+                    <div class="row mb-5">
+                        <div class="col-md-4 col-sm-12 label" style="font-weight: bold;">Donor ID: </div>
+                        <div class="col-md-8 col-sm-12">{{donor.DonorID}}</div>
+
+
+                        <div class="col-md-4 col-sm-12 label" style="font-weight: bold;">Status: </div>
+                        <div class="col-md-8 col-sm-12">
+
+                            {% if donor.isAvailable %}
+                            <span class="badge bg-success">Available</span>
+                            {% else %}
+                            <span class="badge bg-secondary">Unavailable</span>
+
+                            {% endif %}
+                        </div>
+
+
+                        <div class="col-md-4 col-sm-12 label" style="font-weight: bold;">Date Of Birth:</div>
+                        <div class="col-md-8 col-sm-12">{{donor.DateOfBirth}}</div>
+
+                        <div class="col-md-4 col-sm-12 label" style="font-weight: bold;">Blood Group: </div>
+                        <div class="col-md-8 col-sm-12">{{donor.BloodGroup}}</div>
+
+                        <div class="col-md-4 col-sm-12 label" style="font-weight: bold;"> HLA </div>
+                        <div class="col-md-8 col-sm-12"></div>
+
+                        <div class="col-md-4 col-sm-12 label">A: </div>
+                        <div class="col-md-8 col-sm-12">{{donor.A1}},{{donor.A2}}</div>
+
+
+                        <div class="col-md-4 col-sm-12 label">B: </div>
+                        <div class="col-md-8 col-sm-12">{{donor.B1}},{{donor.B2}}</div>
+
+                        <div class="col-md-4 col-sm-12 label">C: </div>
+                        <div class="col-md-8 col-sm-12">{{donor.C1}},{{donor.C2}}</div>
+
+
+                        <div class="col-md-4 col-sm-12 label">DRB1: </div>
+                        <div class="col-md-8 col-sm-12">{{donor.DRB1}},{{donor.DRB2}}</div>
+
+
+                        <div class="col-md-4 col-sm-12 label">DQA1: </div>
+                        <div class="col-md-8 col-sm-12">{{donor.DQA1}},{{donor.DQA2}}</div>
+
+                        <div class="col-md-4 col-sm-12 label">DQB1: </div>
+                        <div class="col-md-8 col-sm-12">{{donor.DQB1}},{{donor.DQB2}}</div>
+
+                        <div></div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col">
+                <div class="card p-4">
+
+
+
+                    <h5 class="card-title mb-4">Patient Information: </h5>
+                    <h5 class="card-title mb-4"></h5>
+
+                    <div class="row mb-5">
+                        <div class="col-md-4 col-sm-12 label" style="font-weight: bold;">Patient ID: </div>
+                        <div class="col-md-8 col-sm-12">{{patient.PatientID}}</div>
+
+
+                        <div class="col-md-4 col-sm-12 label" style="font-weight: bold;">Status: </div>
+                        <div class="col-md-8 col-sm-12">
+
+                            {% if patient.isPatientOnWaitingList %}
+                            <span class="badge bg-danger">Waiting list</span>
+                            {% else %}
+                            <span class="badge bg-secondary">Out of Waiting List</span>
+
+                            {% endif %}
+                        </div>
+
+
+                        <div class="col-md-4 col-sm-12 label" style="font-weight: bold;">Date Of Birth:</div>
+                        <div class="col-md-8 col-sm-12">{{patient.DateOfBirth}}</div>
+
+                        <div class="col-md-4 col-sm-12 label" style="font-weight: bold;">Blood Group: </div>
+                        <div class="col-md-8 col-sm-12">{{patient.BloodGroup}}</div>
+
+                        <div class="col-md-4 col-sm-12 label" style="font-weight: bold;"> HLA </div>
+                        <div class="col-md-8 col-sm-12"></div>
+
+                        <div class="col-md-4 col-sm-12 label">A: </div>
+                        <div class="col-md-8 col-sm-12">{{patient.A1}},{{patient.A2}}</div>
+
+
+                        <div class="col-md-4 col-sm-12 label">B: </div>
+                        <div class="col-md-8 col-sm-12">{{patient.B1}},{{patient.B2}}</div>
+
+                        <div class="col-md-4 col-sm-12 label">C: </div>
+                        <div class="col-md-8 col-sm-12">{{patient.C1}},{{patient.C2}}</div>
+
+
+                        <div class="col-md-4 col-sm-12 label">DRB1: </div>
+                        <div class="col-md-8 col-sm-12">{{patient.DRB1}},{{patient.DRB2}}</div>
+
+
+                        <div class="col-md-4 col-sm-12 label">DQA1: </div>
+                        <div class="col-md-8 col-sm-12">{{patient.DQA1}},{{patient.DQA2}}</div>
+
+                        <div class="col-md-4 col-sm-12 label">DQB1: </div>
+                        <div class="col-md-8 col-sm-12">{{patient.DQB1}},{{patient.DQB2}}</div>
+
+                        <div class="col-md-4 col-sm-12 label" style="font-weight: bold;">Antibodies: </div>
+                        <div class="col-md-8 col-sm-12">
+
+                            {% if patient.antiA is not none %}
+                            {{ patient.antiA }}
+                            {% endif %}
+
+                            {% if patient.antiB is not none %}
+                            , {{ patient.antiB }}
+                            {% endif %}
+
+                            {% if patient.antiC is not none %}
+                            , {{ patient.antiC }}
+                            {% endif %}
+
+                            {% if patient.antiDQA is not none %}
+                            , {{ patient.antiDQA }}
+                            {% endif %}
+
+                            {% if patient.antiDQB is not none %}
+                            , {{ patient.antiDQB }}
+                            {% endif %}
+
+                            {% if patient.antIDR is not none %}
+                            , {{ patient.antIDR }}
+                            {% endif %}
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+</section>
+
+
+
+{% endblock %}

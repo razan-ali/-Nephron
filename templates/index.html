@@ -1,0 +1,85 @@
+{% extends "sidebar.html" %}
+{% block title %}index{% endblock %}
+{% block content %}
+
+<section class="section">
+
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Find Matching</h5>
+          <!-- Horizontal Form -->
+          <!-- input form -->
+          <form method="POST">
+            <div class="text-center">
+              <div class="row mb-3">
+                <label for="inputText" class="col-sm-2 col-form-label">Enter Donor ID</label>
+                <div class="col-sm-3"> <!-- adjust column width here -->
+                  <input type="text" name="donorID" class="form-control" id="donorID" required>
+                </div>
+                <div class="col-sm-2">
+                  <button type="submit" class="btn btn-primary px-4">Match</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Matching History</h5>
+         
+        
+           <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Donor ID</th>
+                <th scope="col">Date</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              {% for i in unique_combinations %}
+
+              <tr>
+                
+                <td>{{ i.DonorID }}</td>
+                <td>{{ i.DateOfTransplantation.strftime('%H:%M:%S') }}</td>
+              
+              
+                <td>
+                  <a href="{{ url_for( 'views.old_mathcing', donorid=i.DonorID , id = i.id )}}">
+                    <button type="button" class="btn btn-primary btn-sm">View</button>
+                  </a>
+                 
+                </td>
+                <td>
+                  <a href="{{ url_for( 'views.delete_History', donorid=i.DonorID , id = i.id )}}">
+                    <button type="button" class="btn btn-primary btn-sm">Delete</button>
+                  </a>
+                 
+                </td>
+              </tr>
+
+              {% endfor %}
+
+            </tbody>
+
+          </table>
+           
+       
+          <!-- Horizontal Form -->
+          <!-- input form -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+{% endblock %}
